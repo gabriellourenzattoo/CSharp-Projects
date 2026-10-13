@@ -84,6 +84,9 @@ class Program
                     Console.WriteLine("------------------------");         
                     Console.WriteLine("Exiting...");
                     return;
+                default:
+                    Console.WriteLine("|Option not found... ");
+                    break;
             }   
         }
     }
