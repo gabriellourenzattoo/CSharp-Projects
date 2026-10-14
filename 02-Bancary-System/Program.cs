@@ -10,7 +10,6 @@ public class Account
 
     public bool isActive          { get; private set; }
     public int accountNumber      { get; private set; }
-    public double accountLimit    { get; private set; }
 
     private string _accountPassword;
 
@@ -22,11 +21,64 @@ public class Account
 
         isActive = true;
         accountNumber = _accountCounter;
-        accountLimit = 0;
 
         _accountPassword = password;
-
         _accountCounter++;
+    }
+
+    public bool disableAccount ()
+    {
+        isActive = false;
+        return true;
+    }
+
+    public bool enableAccount ()
+    {
+        isActive = true;
+        return true;
+    }
+
+    public bool changeName ( string newName )
+    {
+        accountName = newName;
+        return true;
+    }
+
+    public bool changeEmail ( string newEmail )
+    {
+        accountEmail = newEmail;
+        return true;
+    }
+
+    public bool deposit ( double depositValue )
+    {
+        if (isActive && depositValue < 5000 )
+        {
+           accountSale += depositValue;
+           return true;
+        }
+        return false;
+    }
+
+    public bool withdraw ( double withdrawValue)
+    {
+        if ( isActive && withdrawValue > 0 && accountSale - withdrawValue >= 0 )
+        {
+            accountSale -= withdrawValue;
+            return true;
+        }
+        return false;
+    }
+
+    public bool pix ( Account receiver, double value )
+    {
+        if (isActive && receiver.isActive && value > 0 && value < 5000 && accountSale - value >= 0 )
+        {
+            this.withdraw(value);
+            receiver.deposit(value);
+            return true;
+        }
+        return false;
     }
 
     public void viewAccount()
@@ -38,43 +90,8 @@ public class Account
         Console.WriteLine($"│ Name: {accountName, - 26} │");
         Console.WriteLine($"│ Email: {accountEmail ?? "Uninformed", - 25} │");
         Console.WriteLine($"│ Sale: {accountSale, -26:c} │");
-        Console.WriteLine($"│ Limit: {accountLimit, - 25:c} │");
         Console.WriteLine($"│ IsActive: {isActive, - 22} │");
         Console.WriteLine("└──────────────────────────────────┘");
-
-    }
-
-    public bool deposit ( double depositValue )
-    {
-        
-        if ( depositValue < 5000 )
-        {
-           accountSale += depositValue;
-           return true;
-        }
-        return false;
-    }
-
-    public bool withdraw ( double withdrawValue)
-    {
-        
-        if ( withdrawValue > 0 && (accountSale + accountLimit)- withdrawValue >= 0 )
-        {
-            accountSale -= withdrawValue;
-            return true;
-        }
-        return false;
-    }
-
-    public bool pix ( Account receiver, double value )
-    {
-        if ( value > 0 && value < 5000 && ( accountSale + accountLimit ) - value >= 0 )
-        {
-            this.withdraw(value);
-            receiver.deposit(value);
-            return true;
-        }
-        return false;
     }
 }
 
@@ -84,12 +101,11 @@ public class Program
     {
         var arthur = new Account("arthut", "senha123", "Arthurlindao@gmail.com");
         arthur.viewAccount();
-        arthur.deposit(1000);
+        arthur.viewAccount();
+        arthur.withdraw(100);
+        arthur.viewAccount();
+        arthur.deposit(50);
         arthur.viewAccount();
         var manuel = new Account("Manuel", "senha123", "Manuellindao@gmail.com");
-        manuel.viewAccount();
-        arthur.pix(manuel, 100);
-        manuel.viewAccount();
-        arthur.viewAccount();       
     }
 }
