@@ -95,7 +95,7 @@ Each project lives in its own numbered folder, with its own `README.md` explaini
 ## 🧭 Roadmap / Next Projects
 
 - [x] **01 — To-Do List**: CLI task manager
-- [ ] Add input validation to the early projects
+- [-] **02 - Bancary System
 - [ ] Refactor early projects as new concepts are learned
 - [ ] Next projects coming soon
 
