@@ -31,7 +31,7 @@ public class Account
 
     public void viewAccount()
     {
-        Console.WriteLine("┌──────────────────────────────────┐");
+        Console.WriteLine("\n┌──────────────────────────────────┐");
         Console.WriteLine("│           Account Details        │");
         Console.WriteLine("├──────────────────────────────────┤"); //36 caracters
         Console.WriteLine($"│ Account Number: {accountNumber, -16} │");
@@ -41,7 +41,29 @@ public class Account
         Console.WriteLine($"│ Limit: {accountLimit, - 25:c} │");
         Console.WriteLine($"│ IsActive: {isActive, - 22} │");
         Console.WriteLine("└──────────────────────────────────┘");
-        Console.WriteLine();
+
+    }
+
+    public bool deposit(double depositValue)
+    {
+        Console.Clear();
+        if (depositValue < 5000)
+        {
+           accountSale += depositValue;
+           return true;
+        }
+        return false;
+    }
+    
+    public bool withdraw( double withdrawValue)
+    {
+        Console.Clear();
+        if (withdrawValue > 0 && (accountSale + accountLimit)- withdrawValue >= 0)
+        {
+            accountSale -= withdrawValue;
+            return true;
+        }
+        return false;
     }
 }
 
@@ -51,6 +73,7 @@ public class Program
     {
         var arthur = new Account("arthut", "senha123", "Arthurlindao@gmail.com");
         arthur.viewAccount();
+
         
     }
 }
