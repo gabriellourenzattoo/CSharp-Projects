@@ -17,7 +17,7 @@ public class Account
     public Account(string name, string password, string? email)
     {
         accountName = name.Trim();
-        accountEmail = email.Trim();
+        accountEmail = email;
         accountSale = 0;
 
         isActive = true;
@@ -44,23 +44,34 @@ public class Account
 
     }
 
-    public bool deposit(double depositValue)
+    public bool deposit ( double depositValue )
     {
-        Console.Clear();
-        if (depositValue < 5000)
+        
+        if ( depositValue < 5000 )
         {
            accountSale += depositValue;
            return true;
         }
         return false;
     }
-    
-    public bool withdraw( double withdrawValue)
+
+    public bool withdraw ( double withdrawValue)
     {
-        Console.Clear();
-        if (withdrawValue > 0 && (accountSale + accountLimit)- withdrawValue >= 0)
+        
+        if ( withdrawValue > 0 && (accountSale + accountLimit)- withdrawValue >= 0 )
         {
             accountSale -= withdrawValue;
+            return true;
+        }
+        return false;
+    }
+
+    public bool pix ( Account receiver, double value )
+    {
+        if ( value > 0 && value < 5000 && ( accountSale + accountLimit ) - value >= 0 )
+        {
+            this.withdraw(value);
+            receiver.deposit(value);
             return true;
         }
         return false;
@@ -73,7 +84,12 @@ public class Program
     {
         var arthur = new Account("arthut", "senha123", "Arthurlindao@gmail.com");
         arthur.viewAccount();
-
-        
+        arthur.deposit(1000);
+        arthur.viewAccount();
+        var manuel = new Account("Manuel", "senha123", "Manuellindao@gmail.com");
+        manuel.viewAccount();
+        arthur.pix(manuel, 100);
+        manuel.viewAccount();
+        arthur.viewAccount();       
     }
 }
