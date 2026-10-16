@@ -34,14 +34,16 @@ This is a living repository: it grows as my understanding of C# and software des
 
 - Variables and data types
 - Console input and output (`Console.ReadLine`, `Console.WriteLine`)
-- Control flow (`if`/`else`, `while`, `foreach`)
+- Control flow (`if`/`else`, `while`, `do...while`, `foreach`)
 - `switch` statements
 - Collections (`List<T>`)
 - String manipulation and interpolation
-- Null handling (`??` operator)
+- Null handling (`??` operator and nullable reference types)
 - Input parsing and validation
 - Methods and code organization
-- Classes and objects
+- Classes, objects and properties
+- Encapsulation (private fields, `private set`)
+- Business rules inside classes
 - C# best practices and naming conventions
 
 ---
@@ -51,12 +53,19 @@ This is a living repository: it grows as my understanding of C# and software des
 | Project | Description | Status |
 |---|---|---|
 | [**01 — To-Do List**](./01-todo-list) | A terminal-based (CLI) task manager, built to practice loops, `switch` menus, collections, and console input handling. | ✅ Available |
+| [**02 — Bancary System**](./02-Bancary-System) | A terminal-based banking system, built to practice classes, encapsulation, nullable types, and business rules. | ✅ Available |
 
 ### 🔹 To-Do List
 
 A command-line to-do list where users can view, add, and remove tasks through an interactive menu. Tasks are stored in a `List<string>` and the program keeps running until the user chooses to exit. This is the first project of the repository and the foundation for the C# concepts explored here.
 
 ➡️ [View project](./01-todo-list)
+
+### 🔹 Bancary System
+
+A command-line banking simulator where users can register an account, log in, and manage their money through interactive menus: deposit, withdraw, send a PIX transfer, change their info, enable or disable the account, and view the account details. Accounts are stored in a `List<Account>`, and the `Account` class enforces the business rules (balance, limits, active status). This is the first project of the repository built around classes and objects.
+
+➡️ [View project](./02-Bancary-System)
 
 ---
 
@@ -70,9 +79,11 @@ A command-line to-do list where users can view, add, and remove tasks through an
 | `switch` statements | ✅ In use |
 | Collections (`List<T>`) | ✅ In use |
 | String interpolation | ✅ In use |
+| Methods | ✅ In use |
+| Classes and objects | ✅ In use |
+| Encapsulation | ✅ In use |
+| Nullable reference types | 🟡 In progress |
 | Input validation | 🟡 In progress |
-| Methods | 🟡 In progress |
-| Classes and objects | ⬜ Planned |
 | File persistence | ⬜ Planned |
 
 ---
@@ -85,6 +96,11 @@ CSharp-Projects/
 │   ├── Program.cs
 │   ├── TodoList.csproj
 │   └── README.md
+├── 02-visual-bank/
+│   ├── Program.cs
+│   ├── Account.cs
+│   ├── BancarySystem.csproj
+│   └── README.md
 └── README.md
 ```
 
@@ -95,8 +111,7 @@ Each project lives in its own numbered folder, with its own `README.md` explaini
 ## 🧭 Roadmap / Next Projects
 
 - [x] **01 — To-Do List**: CLI task manager
-- [ ] **02 — Bancary System**
-- [ ] Refactor early projects as new concepts are learned
+- [x] **02 — Visual Bank**: CLI banking system
 - [ ] Next projects coming soon
 
 > New projects are added incrementally as new C# concepts are studied and applied.
@@ -112,7 +127,7 @@ Each project is self-contained inside its own folder. To run one:
 git clone https://github.com/gabriellourenzattoo/CSharp-Projects
 
 # Navigate into the desired project
-cd CSharp-Projects/01-todo-list
+cd CSharp-Projects/01-todo-list    # or 02-visual-bank
 
 # Run it with the .NET CLI
 dotnet run
