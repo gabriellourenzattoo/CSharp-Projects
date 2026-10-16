@@ -81,6 +81,11 @@ public class Account
         return false;
     }
 
+    public bool checkPassword( string password)
+    {
+        return _accountPassword == password;
+    }
+
     public void viewAccount()
     {
         Console.WriteLine("\n┌──────────────────────────────────┐");
@@ -92,13 +97,5 @@ public class Account
         Console.WriteLine($"│ Sale: {accountSale, -26:c} │");
         Console.WriteLine($"│ IsActive: {isActive, - 22} │");
         Console.WriteLine("└──────────────────────────────────┘");
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-
     }
 }
