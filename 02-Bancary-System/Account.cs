@@ -99,13 +99,6 @@ public class Program
 {
     public static void Main()
     {
-        var arthur = new Account("arthut", "senha123", "Arthurlindao@gmail.com");
-        arthur.viewAccount();
-        arthur.viewAccount();
-        arthur.withdraw(100);
-        arthur.viewAccount();
-        arthur.deposit(50);
-        arthur.viewAccount();
-        var manuel = new Account("Manuel", "senha123", "Manuellindao@gmail.com");
+
     }
 }
