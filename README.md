@@ -63,9 +63,17 @@ A command-line to-do list where users can view, add, and remove tasks through an
 
 ### 🔹 Bancary System
 
-A command-line banking simulator where users can register an account, log in, and manage their money through interactive menus: deposit, withdraw, send a PIX transfer, change their info, enable or disable the account, and view the account details. Accounts are stored in a `List<Account>`, and the `Account` class enforces the business rules (balance, limits, active status). This is the first project of the repository built around classes and objects.
+A command-line banking simulator where users can register an account, log in, and manage their money through interactive menus: deposit, withdraw, send a PIX transfer, change their info, enable or disable the account, and view the account details. Accounts are stored in a `List<Account>`, and the `Account` class enforces the business rules (balance, limits, active status).
 
 ➡️ [View project](./02-Bancary-System)
+
+---
+
+### 🔹 Libary System
+
+A command-line bookstore simulator where users can register an account, log in, browse and purchase books, and manage their personal collection. Accounts are stored in a `List<Account>`, while the `Account` and `Book` classes enforce the business rules, such as balance checks, purchase limits, and account status.
+
+➡️ [View project](./03-Library-System)
 
 ---
 
@@ -101,6 +109,12 @@ CSharp-Projects/
 │   ├── Account.cs
 │   ├── BancarySystem.csproj
 │   └── README.md
+├── 03-library-system/
+│   ├── Program.cs
+│   ├── Accounts.cs
+│   ├── Books.cs
+│   ├── Program.csproj
+│   └── README.md
 └── README.md
 ```
 
@@ -112,6 +126,8 @@ Each project lives in its own numbered folder, with its own `README.md` explaini
 
 - [x] **01 — To-Do List**: CLI task manager
 - [x] **02 — Visual Bank**: CLI banking system
+- [ ] **03 — Library System**: In progress
+- [ ] **Refactor the projects**: Coming Soon
 - [ ] Next projects coming soon
 
 > New projects are added incrementally as new C# concepts are studied and applied.
