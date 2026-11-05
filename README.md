@@ -69,14 +69,6 @@ A command-line banking simulator where users can register an account, log in, an
 
 ---
 
-### 🔹 Libary System
-
-A command-line bookstore simulator where users can register an account, log in, browse and purchase books, and manage their personal collection. Accounts are stored in a `List<Account>`, while the `Account` and `Book` classes enforce the business rules, such as balance checks, purchase limits, and account status.
-
-➡️ [View project](./03-Library-System)
-
----
-
 ## 📈 Study Progress
 
 | Concept | Status |
@@ -109,12 +101,6 @@ CSharp-Projects/
 │   ├── Account.cs
 │   ├── BancarySystem.csproj
 │   └── README.md
-├── 03-library-system/
-│   ├── Program.cs
-│   ├── Accounts.cs
-│   ├── Books.cs
-│   ├── Program.csproj
-│   └── README.md
 └── README.md
 ```
 
@@ -126,7 +112,6 @@ Each project lives in its own numbered folder, with its own `README.md` explaini
 
 - [x] **01 — To-Do List**: CLI task manager
 - [x] **02 — Visual Bank**: CLI banking system
-- [ ] **03 — Library System**: In progress
 - [ ] **Refactor the projects**: Coming Soon
 - [ ] Next projects coming soon
 
